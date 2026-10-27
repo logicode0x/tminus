@@ -1,0 +1,27 @@
+{
+  "_about": "Names, symbols and images a launch may not copy (spec §9: no copies of real brands or people). 'contains' blocks a name in which the entry appears as whole words; 'exact' blocks only a name equal to it (common words); 'symbols' blocks a symbol. Entries are normalised the same way names are (src/denylist.mjs). The owner can add more from the admin API.",
+  "contains": [
+    "elon musk", "elonmusk", "donald trump", "melania trump", "barron trump", "ivanka trump", "joe biden", "kamala harris", "jd vance", "taylor swift", "kanye west",
+    "mrbeast", "mr beast", "cristiano ronaldo", "lionel messi", "lebron james", "michael jordan", "vitalik buterin", "changpeng zhao", "satoshi nakamoto",
+    "anatoly yakovenko", "jensen huang", "mark zuckerberg", "zuckerberg", "jeff bezos", "bill gates", "sam altman", "warren buffett", "pope francis", "pope leo",
+    "king charles", "kim jong un", "vladimir putin", "xi jinping", "narendra modi", "barack obama", "michelle obama", "hillary clinton", "beyonce", "rihanna",
+    "drake", "eminem", "snoop dogg", "kim kardashian", "kylie jenner", "billie eilish", "justin bieber", "selena gomez", "ariana grande", "lady gaga",
+    "tesla", "spacex", "nvidia", "openai", "chatgpt", "anthropic", "microsoft", "google", "alphabet", "amazon", "facebook", "instagram", "whatsapp", "tiktok",
+    "youtube", "netflix", "disney", "pixar", "marvel", "starbucks", "mcdonalds", "coca cola", "cocacola", "pepsi", "burger king", "louis vuitton", "gucci",
+    "prada", "chanel", "hermes", "rolex", "ferrari", "lamborghini", "porsche", "mercedes benz", "rolls royce", "adidas", "nike", "supreme", "playstation",
+    "nintendo", "pokemon", "xbox", "samsung", "huawei", "coinbase", "binance", "kraken exchange", "robinhood", "blackrock", "jpmorgan", "goldman sachs",
+    "mastercard", "paypal", "walmart", "costco", "red bull", "redbull", "ferrero", "lego", "barbie", "hello kitty", "spongebob", "mickey mouse",
+    "solana foundation", "solana labs", "pump fun", "pumpfun", "raydium", "meteora", "jupiter exchange", "phantom wallet", "magic eden", "tensor", "helius"
+  ],
+  "exact": [
+    "apple", "meta", "target", "visa", "puma", "claude", "gemini", "phantom", "jupiter", "kraken", "ye", "cz", "toly", "trump", "melania", "biden", "obama",
+    "elon", "musk", "bezos", "solana", "bitcoin", "ethereum", "tether", "usdc", "circle", "uber", "airbnb", "intel", "amd", "ibm", "oracle", "x", "twitter",
+    "bmw", "audi", "toyota", "honda", "ford", "shell", "bp", "ups", "fedex", "dhl", "ikea", "zara", "hm", "gap", "kfc", "subway"
+  ],
+  "symbols": [
+    "SOL", "WSOL", "USDC", "USDT", "PYUSD", "BTC", "WBTC", "ETH", "WETH", "JUP", "BONK", "WIF", "JTO", "PYTH", "RAY", "ORCA", "MET", "TRUMP", "MELANIA",
+    "POPCAT", "PENGU", "FARTCOIN", "JLP", "MSOL", "JITOSOL", "BNSOL", "TSLA", "AAPL", "NVDA", "GOOGL", "AMZN", "META", "MSFT", "SPY", "QQQ"
+  ],
+  "imageSha256": [],
+  "imageDhash": []
+}

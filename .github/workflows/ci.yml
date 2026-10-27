@@ -1,0 +1,65 @@
+# Unit/API tests and builds run on pushes and pull requests. Fork integration suites are opt-in through workflow_dispatch.
+name: CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_fork:
+        description: Run the external-RPC-dependent Solana fork suites
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:17
+        env: { POSTGRES_USER: studio, POSTGRES_PASSWORD: studio, POSTGRES_DB: studio_test }
+        ports: ['5432:5432']
+        options: --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: npm }
+      - run: npm ci
+      - run: npm test
+      - name: API against Postgres
+        run: node --test test/api.test.mjs
+        env: { TEST_DATABASE_URL: 'postgres://studio:studio@127.0.0.1:5432/studio_test?sslmode=disable' }
+      - run: npm run build
+
+  fork:
+    if: github.event_name == 'workflow_dispatch' && inputs.run_fork
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: npm }
+      - run: npm ci
+      - run: npm run setup:fonts
+      - name: Install the Solana test validator
+        run: |
+          sh -c "$(curl -sSfL https://release.anza.xyz/v3.1.11/install)"
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
+      - run: npm run fork:checks
+      - run: npm run fork:presets
+      - run: npm run fork:manage
+      - run: npm run fork:advanced
+      - run: npm run fork:form
+
+  secrets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan the release tree for credentials
+        run: |
+          docker run --rm -v "$PWD:/source" zricethezav/gitleaks:v8.30.1 dir /source --config /source/.gitleaks.toml --redact --no-banner

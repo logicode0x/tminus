@@ -1,0 +1,18 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Official T-minus public mint, not a credential"
+condition = "AND"
+paths = ['''(^|/)src/official-token\.mjs$''']
+regexes = ['''6ZEKAPJ5o5sQR5XMG4xg1QoU2W8tMeAq1Q46zGqtTxph''']
+
+[[allowlists]]
+description = "Public token mint in a captured market-data test fixture"
+condition = "AND"
+paths = ['''(^|/)test/fixtures/lexora-market\.json$''']
+regexes = ['''5ASMXaJpm1EuKVNC2G5KVL7pzgaA1oNN7u3mZ5HEQ6Ez''']
+
+[[allowlists]]
+description = "Generated dependencies, build output and local Git metadata are not release source"
+paths = ['''(^|/)(node_modules|dist|dist-ssr|\.git)/''']

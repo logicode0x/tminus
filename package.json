@@ -1,0 +1,64 @@
+{
+  "name": "tminus",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A no-code Solana launchpad built on Meteora.",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "dev": "vite",
+    "dev:server": "node --env-file-if-exists=.env --watch server.mjs",
+    "build": "vite build && vite build --ssr web/ssr.jsx",
+    "test": "node --test test/*.test.mjs",
+    "fork:checks": "node scripts/fork/checks.mjs",
+    "fork:presets": "node scripts/fork/presets.mjs",
+    "fork:manage": "node scripts/fork/manage.mjs",
+    "fork:advanced": "node scripts/fork/advanced.mjs",
+    "fork:form": "node scripts/fork/form.mjs",
+    "sweep:form": "node scripts/form-sweep.mjs",
+    "setup:fonts": "node scripts/setup-fonts.mjs",
+    "pretest": "npm run setup:fonts",
+    "prebuild": "npm run setup:fonts"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
+    "@metaplex-foundation/umi": "^1.6.0",
+    "@metaplex-foundation/umi-bundle-defaults": "^1.6.0",
+    "@metaplex-foundation/umi-web3js-adapters": "^1.6.0",
+    "@meteora-ag/cp-amm-sdk": "1.5.1",
+    "@meteora-ag/dynamic-bonding-curve-sdk": "2.0.0",
+    "@meteora-ag/dynamic-fee-sharing-sdk": "1.1.0",
+    "@noble/curves": "^1.9.7",
+    "@noble/hashes": "^2.4.0",
+    "@solana/spl-token": "^0.4.15",
+    "@solana/spl-token-metadata": "^0.1.6",
+    "@solana/web3.js": "^1.99.0",
+    "aws4fetch": "^1.0.20",
+    "bn.js": "^5.2.5",
+    "bs58": "^4.0.1",
+    "lightweight-charts": "5.2.1",
+    "opentype.js": "^1.3.4",
+    "pg": "^8.23.1",
+    "posthog-js": "^1.438.12",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "buffer": "^6.0.3",
+    "fflate": "0.8.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.169.0",
+    "vite": "^8.3.4"
+  },
+  "homepage": "https://tminus.si",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logicode0x/tminus.git"
+  },
+  "license": "MIT"
+}

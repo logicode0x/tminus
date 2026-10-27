@@ -1,0 +1,23 @@
+{
+  "mint": "5ASMXaJpm1EuKVNC2G5KVL7pzgaA1oNN7u3mZ5HEQ6Ez",
+  "pool": "66N6SMNQTGcHdUqVy8vT4oHnrTKzyTKBm3HXrSuShKwp",
+  "solUsd": 101.540401298,
+  "supply": {
+    "amount": "999937337278713",
+    "decimals": 6,
+    "uiAmount": 999937337.278713,
+    "uiAmountString": "999937337.278713"
+  },
+  "state": {
+    "tokenAMint": "5ASMXaJpm1EuKVNC2G5KVL7pzgaA1oNN7u3mZ5HEQ6Ez",
+    "tokenBMint": "So11111111111111111111111111111111111111112",
+    "sqrtPrice": "728894172399919",
+    "sqrtMinPrice": "4295048016",
+    "sqrtMaxPrice": "79226673521066979257578248091",
+    "liquidity": "341029672554809930076823321855",
+    "tokenAAmount": "467872683673624",
+    "tokenBAmount": "730493"
+  },
+  "collectFeeMode": 1,
+  "layoutVersion": 1
+}

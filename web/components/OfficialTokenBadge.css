@@ -1,0 +1,22 @@
+.official-token {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: 1px solid var(--line-2);
+  border-radius: 5px;
+  color: var(--ink);
+  background: var(--surface);
+  font-size: .74rem;
+  font-weight: 600;
+  line-height: 1.35;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.official-token svg { flex: none; }
+.official-token.compact { padding: 2px 5px; }
+.lc-token-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.token-head .official-token { margin-bottom: 10px; }
+@media (max-width: 600px) {
+  .topbar nav a { padding-inline: 8px; font-size: .92rem; white-space: nowrap; }
+}

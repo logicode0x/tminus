@@ -1,0 +1,23 @@
+node_modules
+dist
+.env
+.env.*
+!.env.example
+.DS_Store
+coverage/
+.claude/
+.codex/
+data/fonts/*.ttf
+data/fonts/FFL.txt
+public/fonts/*.woff2
+data/*.db*
+data/files
+.fork
+*.log
+.superpowers/
+
+# design working files (decision pages, reference boards, review captures)
+.impeccable/questions/
+.impeccable/refs/
+.impeccable/review/
+dist-ssr/
