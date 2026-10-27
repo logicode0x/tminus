@@ -1,0 +1,14 @@
+{
+  "name": "@tminus/bigint-buffer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Native-free unsigned integer conversion adapter for Solana buffer layouts",
+  "license": "MIT",
+  "main": "index.cjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": "./index.cjs",
+    "./package.json": "./package.json"
+  },
+  "files": ["index.cjs", "index.d.ts", "LICENSE", "README.md"]
+}

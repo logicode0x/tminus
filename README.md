@@ -76,6 +76,7 @@ Creators sign their own launch and management transactions. The optional studio 
 ## Tests
 
 ```sh
+npm audit --audit-level=low
 npm test
 npm run build
 ```
@@ -120,6 +121,7 @@ Set `ORIGIN` to the deployment's canonical URL. Set up persistent PostgreSQL and
 | `web/` | React application, shared components and styles. |
 | `scripts/` | Font setup, operational tools and fork/form checks. |
 | `test/` | Automated tests and public-chain fixtures. |
+| `vendor/bigint-buffer/` | Native-free integer conversion adapter used by the Solana dependency tree. |
 | `docs/` | API contract, launch options and implementation notes. |
 
 ## Reporting a vulnerability
@@ -128,4 +130,4 @@ Use GitHub's private vulnerability reporting feature if it is enabled for this r
 
 ## Rights and third-party assets
 
-Project code is released under the [MIT License](LICENSE). Third-party packages retain their respective licenses. Font setup, branding and other asset terms are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Known dependency advisories are recorded in [docs/dependency-audit.md](docs/dependency-audit.md).
+Project code is released under the [MIT License](LICENSE). Third-party packages retain their respective licenses. Font setup, branding and other asset terms are documented in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Dependency remediation and audit results are recorded in [docs/dependency-audit.md](docs/dependency-audit.md).

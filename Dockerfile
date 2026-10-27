@@ -1,7 +1,8 @@
 # The studio: the Node server plus the built site, one image. Railway builds this (railway.json).
 FROM node:24-slim AS build
 WORKDIR /app
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json .npmrc ./
+COPY vendor ./vendor
 RUN npm ci --no-audit --no-fund
 COPY . .
 RUN npm run build && npm prune --omit=dev

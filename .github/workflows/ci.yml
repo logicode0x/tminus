@@ -28,11 +28,24 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 24, cache: npm }
       - run: npm ci
+      - name: Audit all installed dependencies
+        run: npm audit --audit-level=low
       - run: npm test
       - name: API against Postgres
         run: node --test test/api.test.mjs
         env: { TEST_DATABASE_URL: 'postgres://studio:studio@127.0.0.1:5432/studio_test?sslmode=disable' }
       - run: npm run build
+      - name: Build the production container
+        run: docker build --tag tminus-ci .
+      - name: Check the installed production adapter
+        run: >-
+          docker run --rm --entrypoint node tminus-ci -e
+          "const assert = require('node:assert/strict');
+          const fs = require('node:fs');
+          const b = require('bigint-buffer');
+          assert.equal(require('bigint-buffer/package.json').name, '@tminus/bigint-buffer');
+          assert.equal(fs.lstatSync('/app/node_modules/bigint-buffer').isSymbolicLink(), false);
+          assert.equal(b.toBigIntLE(b.toBufferLE((1n << 256n) - 1n, 32)), (1n << 256n) - 1n);"
 
   fork:
     if: github.event_name == 'workflow_dispatch' && inputs.run_fork
